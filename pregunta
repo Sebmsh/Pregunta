@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de San Valentín</title>
+    <style>
+        body {
+            background-color: #7e57c2; /* Fondo lila */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #contenido-inicial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #mono-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        #mensaje {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .opciones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .opcion-btn {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #si-btn {
+            background-color: #673ab7; /* Morado fuerte */
+        }
+
+        #no-btn {
+            background-color: #673ab7; /* Morado fuerte */
+        }
+
+        #resultado {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contenido-inicial">
+        <img id="mono-img" src="images/MONO2.jpg" alt="MONO 2">
+        <div id="mensaje">Noelia, ¿quieres ser mi 14 de febrero?</div>
+        <div class="opciones">
+            <button id="si-btn" class="opcion-btn" onclick="responder('SI')">Si mi amor</button>
+            <button id="no-btn" class="opcion-btn" onclick="responder('NO')">Don't</button>
+        </div>
+    </div>
+
+    <div id="resultado">
+        <img src="images/MONO1.jpeg" alt="MONO 1" id="mono1-grande" style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; display: none;">
+        <p id="mensaje-resultado"></p>
+    </div>
+
+    <script>
+        function responder(respuesta) {
+            var contenidoInicial = document.getElementById('contenido-inicial');
+            var resultadoDiv = document.getElementById('resultado');
+            var mensajeResultado = document.getElementById('mensaje-resultado');
+            var mono1Grande = document.getElementById('mono1-grande');
+
+            if (respuesta === 'SI') {
+                contenidoInicial.style.display = 'none';
+                resultadoDiv.style.display = 'flex';
+                mono1Grande.style.display = 'block';
+                mensajeResultado.innerHTML = 'Ya lo sabía amor, buena elección';
+            } else {
+                resultadoDiv.style.display = 'flex';
+                mensajeResultado.innerHTML = 'AEA';
+                contenidoInicial.style.display = 'none'; // Oculta el contenido inicial
+            }
+        }
+    </script>
+</body>
+</html>
